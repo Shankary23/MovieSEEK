@@ -9,15 +9,15 @@ const TMDB_BASE_URL = 'https://api.themoviedb.org/3';
 app.use(express.json());
 
 // Root route
-app.get('/', (req, res) => {
+app.get('/', (req, res) =>{
     res.send('Welcome to the Movie Microservice API! Use /search?query=movie_name or /movie/:id');
 });
 
 // Search for movies
-app.get('/search', async (req, res) => {
+app.get('/search', async (req, res) =>{
     try {
         const { query } = req.query;
-        if (!query) {
+        if (!query){
             return res.status(400).json({ error: 'Query parameter is required' });
         }
         const response = await axios.get(`${TMDB_BASE_URL}/search/movie`, {
@@ -30,7 +30,7 @@ app.get('/search', async (req, res) => {
 });
 
 // Get movie details by ID
-app.get('/movie/:id', async (req, res) => {
+app.get('/movie/:id', async (req, res) =>{
     try {
         const { id } = req.params;
         const response = await axios.get(`${TMDB_BASE_URL}/movie/${id}`, {
