@@ -42,5 +42,6 @@ app.get('/movie/:id', async (req, res) =>{
     }
 });
 
+// Vercel handler export
 module.exports = app;
-module.exports.handler = serverless(app); // This is needed for Vercel
+module.exports.handler = serverless(app); // Export the handler for Vercel to use
