@@ -2,7 +2,8 @@
     "version": 2,
     "functions": {
       "api/index.js": {
-        "handler": "index.handler"
+        "memory": 1024,
+        "maxDuration": 10
       }
     },
     "routes": [
