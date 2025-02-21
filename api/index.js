@@ -1,17 +1,20 @@
 const express = require('express');
 const axios = require('axios');
 const serverless = require('serverless-http'); // Required for Vercel
-
+const cors = require('cors');
 const app = express();
 const TMDB_API_KEY = process.env.TMDB_API_KEY;
 const TMDB_BASE_URL = 'https://api.themoviedb.org/3';
 
 app.use(express.json());
+app.use(cors());
+
 
 // Root route
 app.get('/', (req, res) =>{
     res.send('Welcome to the Movie Microservice API! Use /search?query=movie_name or /movie/:id');
 });
+
 
 // Search for movies
 app.get('/search', async (req, res) =>{
