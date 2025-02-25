@@ -16,6 +16,25 @@
 
   ```
 
+  **Response will put all the data in a JSON format which you can then use**
+  ```
+  setMovies(response.data.results);
+  //Updates the movie state
+  const [movies, setMovies] = useState([]);
+  // Then display data
+  {movies.length > 0 ? (
+  movies.map(movie => (
+    <div key={movie.id}>
+      <h3>{movie.title}</h3>
+      <button onClick={() => fetchMovieDetails(movie.id)}>View Details</button>
+    </div>
+  ))
+) : (
+  <p>No movies found</p>
+)}
+
+  ```
+
   **Server when queried**
   ```
   app.get('/search', async (req, res) => {
